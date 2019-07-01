@@ -39,6 +39,8 @@ class TestCase(unittest.TestCase):
 
     def test_bad_dates(self):
         self.assert_extract('I was born on 2015-13-25.', library.dates_iso8601)
+
+    def test_bad_dates_2(self):
         self.assert_extract('I was born on 2015-07-32.', library.dates_iso8601)
 
     def test_new_date_format(self):
@@ -51,10 +53,13 @@ class TestCase(unittest.TestCase):
 
     def test_third_date_format_1(self):
         self.assert_extract('I was born on 2018-06-22 18:22:19.123.', library.dates_third, '2018-06-22 18:22:19.123')
+
     def test_third_date_format_2(self):
         self.assert_extract('I was born on 2018-06-22 18:22:19', library.dates_third, '2018-06-22 18:22:19')
+
     def test_third_date_format_3(self):
         self.assert_extract('I was born on 2018-06-22 18:22', library.dates_third, '2018-06-22 18:22')
+
     def test_third_date_format_4(self):
         self.assert_extract('I was born on 2018-06-22 18', library.dates_third, '2018-06-22 18')
 
